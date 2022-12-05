@@ -1,7 +1,9 @@
 import React from 'react'
 import styles from '../styles/hero.module.css'
 import cx from 'classnames'
-import bg from '../../public/background-corrected.jpeg'
+
+import bg2x from '../../public/2x/background.jpeg'
+import bg3x from '../../public/3x/background.jpeg'
 
 import { Date } from './Date'
 
@@ -39,6 +41,13 @@ export function HeroSection() {
     };
   }, [handleScroll]);
 
+  const backgroundStyle = {
+    filter: 'grayscale(100%)',
+    // backgroundImage: `url(${bg1x.src})`,
+    backgroundImage: `-webkit-image-set(url(${bg2x.src}) 1x, url(${bg3x.src}) 3x)`
+  }
+  console.log('backgroundStyle = ', backgroundStyle)
+
   return (
     <section
       ref={sectionRef}
@@ -60,12 +69,7 @@ export function HeroSection() {
               'force-hardware-acceleration'
             )
           }
-          style={
-            {
-              filter: 'grayscale(100%)',
-              backgroundImage: `url(${bg.src})`,
-            }
-          }
+          style={backgroundStyle}
         />
       </div>
       <header
