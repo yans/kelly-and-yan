@@ -156,3 +156,10 @@
   color: var(--black);
   padding-bottom: 3rem;
 }
+
+
+@media only screen and (max-width: 768px)  {
+  .rsvp {
+    padding-bottom: 2rem;
+  }
+}
