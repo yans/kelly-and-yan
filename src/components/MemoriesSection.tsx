@@ -704,7 +704,7 @@ function Image(
     const pictureWidth = pictureContainerRef.current?.offsetWidth
     pictureContainerRef.current.style.setProperty('--picture-offset', pictureOffset.toString())
     pictureContainerRef.current.style.setProperty('--variance', variantRef.current.toString())
-  }, [pictureContainerRef.current])
+  }, [])
   return (
     <div
       className={cx(
