@@ -46,8 +46,8 @@
 }
 
 .text {
-  color: #131313;
-  text-shadow: 0px 0px 12px #F0F0F0;
+  color: var(--black);
+  text-shadow: 0px 0px 12px var(--white);
 }
 
 .header {
@@ -57,17 +57,11 @@
   justify-content: space-between;
 }
 
-.description {
-  --description-line-height: 1.5;
-  line-height: --description-line-height;
-
-  overflow: hidden;
-
-  width: 100%;
-}
-
 .descriptionAnswer {
+  --description-line-height: 1.5;
   height: calc(2 * var(--body-font-size) * var(--description-line-height));
+  overflow: hidden;
+  width: 100%;
   max-height: 25vh;
 }
 
@@ -91,7 +85,12 @@
 .descriptionAnswersListItem {
   height: 100%;
   min-height: 100%;
+}
+
+.descriptionAnswersListItemText {
   display: block;
+  line-height: var(--description-line-height);
+  text-align: center;
   white-space: pre-wrap;
 }
 
@@ -213,7 +212,7 @@
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: #F0F0F0;
+  background-color: var(--white);
 }
 
 .pictureWashOverlay {

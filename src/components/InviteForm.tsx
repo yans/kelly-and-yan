@@ -10,7 +10,7 @@ export function InviteForm() {
   const { data, getReservations, postReservation } = useAirtableData()
   React.useEffect(() => {
     getReservations()
-  }, [])
+  }, [getReservations])
 
   const [formState, setFormState] = React.useState<'default' | 'done' | 'incomplete' | 'error'>('default')
 
@@ -58,7 +58,7 @@ export function InviteForm() {
       }).catch(() => {
         setFormState('error')
       })
-    }, [name, partner, email, isAttending])
+    }, [email, isAttending, name, partner, postReservation])
 
   return (
     <div className={styles.formContainer}>

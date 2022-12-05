@@ -26,13 +26,13 @@
 }
 
 .buttonBack {
-  border-color: #131313;
-  color: #131313;
+  border-color: var(--black);
+  color: var(--black);
 }
 
 .buttonBack:hover {
-  background-color: #131313;
-  color: #F0F0F0;
+  background-color: var(--black);
+  color: var(--white);
 }
 
 .label {
@@ -89,8 +89,8 @@
 }
 
 .input:focus {
-  color: #131313;
-  border-color: #131313;
+  color: var(--black);
+  border-color: var(--black);
 }
 
 .inputError {
@@ -123,9 +123,9 @@
   background-position: center;
   background-size: 0.75rem auto;
   background-repeat: no-repeat;
-  color: #131313;
-  /*background-color: #131313;*/
-  border-color: #131313;
+  color: var(--black);
+  /*background-color: var(--black);*/
+  border-color: var(--black);
 }
 
 .formSuccess {

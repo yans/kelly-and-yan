@@ -1,7 +1,7 @@
 .section {
   position: relative;
 
-  background-color: #131313;
+  background-color: var(--black);
 
   display: flex;
   align-items: center;
@@ -20,10 +20,15 @@
 
 .headerContent {
   position: sticky;
-  --top: calc(20vh - var(--pre-font-size) - 5rem);
-  top: calc(var(--top));
-  height: calc(100vh - 2 * var(--top));
+  top: 0;
+
+  height: 100vh;
   max-height: 55rem;
+
+  --vertical-padding: calc(20vh - var(--pre-font-size) - 5rem);
+  padding-top: var(--vertical-padding);
+  padding-bottom: var(--vertical-padding);
+  box-sizing: border-box;
 }
 
 .back {
@@ -33,7 +38,7 @@
   top: 0;
   transform: rotateY(180deg);
 
-  background-color: #F0F0F0;
+  background-color: var(--white);
 }
 
 .front, .back {
@@ -43,7 +48,10 @@
   transition: transform 250ms;
 
   height: 100%;
-  padding: 5rem 4rem 3rem;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
   box-sizing: border-box;
 
   border-radius: 3rem;
@@ -70,14 +78,15 @@
 }
 
 @media only screen and (max-width: 768px)  {
+  .headerContainer {
+    width: 100%;
+  }
   .headerContent {
     width: 100%;
-    top: 0;
   }
   .front, .back {
+    border-radius: 0;
     box-shadow: none;
-    padding: 0px;
-    padding-top: calc(20vh - var(--pre-font-size));
   }
 }
 
@@ -97,7 +106,7 @@
 }
 
 .textFront {
-  color: #F0F0F0;
+  color: var(--white);
   text-align: center;
 }
 
@@ -118,16 +127,16 @@
 }
 
 .buttonFront {
-  border-color: #F0F0F0;
-  color: #F0F0F0;
+  border-color: var(--white);
+  color: var(--white);
 }
 
 .buttonFront:hover {
-  background-color: #F0F0F0;
-  color: #131313;
+  background-color: var(--white);
+  color: var(--black);
 }
 
 .rsvp {
-  color: #131313;
+  color: var(--black);
   padding-bottom: 3rem;
 }

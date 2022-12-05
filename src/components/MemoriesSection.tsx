@@ -382,24 +382,24 @@ export function MemoriesSection() {
             />
             <Year className={styles.text} year={displayYear} />
           </header>
-          <Body className={styles.description}>
-            <div className={cx(styles.descriptionAnswer, styles.text)}>
-              <ul
-                className={styles.descriptionAnswersList}
-                style={{ top: `calc(${memoryIndex} * -100%)` }}
-              >
-                {MEMORIES.map(memory => (
-                  <li
-                    className={styles.descriptionAnswersListItem}
-                    key={memory.label}
-                    id={memory.label}
-                  >
+          <div className={styles.descriptionAnswer}>
+            <ul
+              className={styles.descriptionAnswersList}
+              style={{ top: `calc(${memoryIndex} * -100%)` }}
+            >
+              {MEMORIES.map(memory => (
+                <li
+                  className={styles.descriptionAnswersListItem}
+                  key={memory.label}
+                  id={memory.label}
+                >
+                  <Body className={cx(styles.descriptionAnswersListItemText, styles.text)}>
                     {memory.label}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Body>
+                  </Body>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
       <div className={styles.progressionTracker} ref={progressionRef} />
