@@ -720,7 +720,7 @@ function Image(
         className={cx(styles.picture, 'force-hardware-acceleration')}
         ref={pictureRef}
         src={src}
-        srcset={`${src} 1x, ${src2x} 2x, ${src3x} 3x`}
+        srcSet={`${src} 1x, ${src2x} 2x, ${src3x} 3x`}
       />
       <div className={cx(styles.pictureWash, styles.pictureWashOverlay)} />
     </div>
