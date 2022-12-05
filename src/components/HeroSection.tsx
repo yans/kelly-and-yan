@@ -46,7 +46,6 @@ export function HeroSection() {
     // backgroundImage: `url(${bg1x.src})`,
     backgroundImage: `-webkit-image-set(url(${bg2x.src}) 1x, url(${bg3x.src}) 3x)`
   }
-  console.log('backgroundStyle = ', backgroundStyle)
 
   return (
     <section
