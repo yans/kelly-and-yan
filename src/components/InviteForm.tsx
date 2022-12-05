@@ -38,9 +38,12 @@ export function InviteForm() {
       setAttending(value => !value)
     }, [])
 
+  const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false)
+
   const handleSubmit = React.useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
+      setIsSubmitting(true)
 
       if (!name || !email) {
         setFormState('incomplete')
@@ -57,6 +60,8 @@ export function InviteForm() {
         setFormState('done')
       }).catch(() => {
         setFormState('error')
+      }).finally(() => {
+        setIsSubmitting(false)
       })
     }, [email, isAttending, name, partner, postReservation])
 
@@ -66,8 +71,19 @@ export function InviteForm() {
         formState === 'done' ? (
           <div className={styles.formSuccess}>
             <Body>
-              <p>Excited to have you!</p>
-              <p>See you soon</p>
+              {
+                isAttending ? (
+                  <>
+                    <p>Excited to have you!</p>
+                    <p>See you soon</p>
+                  </>
+                ) : (
+                  <>
+                    <p>That&#8217;s too bad.</p>
+                    <p>Let us know if you change your mind.</p>
+                  </>
+                )
+              }
             </Body>
           </div>
         ):(
@@ -123,7 +139,11 @@ export function InviteForm() {
             </label>
             <div className={styles.spacer} />
             <div className={styles.buttonWrapper}>
-              <Button className={styles.buttonBack} label="Submit" />
+              <Button
+                className={styles.buttonBack}
+                disabled={isSubmitting}
+                label="Submit"
+              />
             </div>
           </form>
 
