@@ -66,8 +66,19 @@ export function InviteForm() {
         formState === 'done' ? (
           <div className={styles.formSuccess}>
             <Body>
-              <p>Excited to have you!</p>
-              <p>See you soon</p>
+              {
+                isAttending ? (
+                  <>
+                    <p>Excited to have you!</p>
+                    <p>See you soon</p>
+                  </>
+                ) : (
+                  <>
+                    <p>That&#8217;s too bad.</p>
+                    <p>We&#8217;ll send pictures!</p>
+                  </>
+                )
+              }
             </Body>
           </div>
         ):(
