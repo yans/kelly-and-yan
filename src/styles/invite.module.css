@@ -22,20 +22,27 @@
   position: sticky;
   top: 0;
 
-  height: 100vh;
-  max-height: 55rem;
-
   --vertical-padding: calc(20vh - var(--pre-font-size) - 5rem);
+
+  height: 100vh;
+  box-sizing: border-box;
+
   padding-top: var(--vertical-padding);
   padding-bottom: var(--vertical-padding);
-  box-sizing: border-box;
+}
+
+.front {
+  height: 100%;
 }
 
 .back {
-  width: 100%;
   position: absolute;
   right: 0;
-  top: 0;
+  top: var(--vertical-padding);
+  bottom: var(--vertical-padding);
+
+  width: 100%;
+
   transform: rotateY(180deg);
 
   background-color: var(--white);
@@ -47,12 +54,13 @@
   transform-style: preserve-3d;
   transition: transform 250ms;
 
-  height: 100%;
+  max-height: 55rem;
+  box-sizing: border-box;
+
   padding-top: 5rem;
   padding-bottom: 3rem;
   padding-left: 4rem;
   padding-right: 4rem;
-  box-sizing: border-box;
 
   border-radius: 3rem;
   box-shadow: 0 0 3rem #333;
@@ -87,6 +95,14 @@
   .front, .back {
     border-radius: 0;
     box-shadow: none;
+  }
+  .front {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .back {
+    top: 0;
+    bottom: 0;
   }
 }
 
