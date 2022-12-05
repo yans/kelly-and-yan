@@ -1,0 +1,239 @@
+.section {
+  position: relative;
+  height: 300vh;
+  width: 100%;
+}
+
+.section::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 0;
+  height: 0;
+}
+
+.progressionTracker {
+  position: sticky;
+  top: 0;
+
+  height: 100vh;
+}
+
+.progressionTracker::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 0;
+  height: 0;
+}
+
+.overlayContainer {
+  position: absolute;
+  height: calc(100% + 200vh);
+  width: 100%;
+
+  margin-top: -100vh;
+  margin-bottom: -100vh;
+  z-index: 50;
+}
+
+.overlayContent {
+  position: sticky;
+  top: 20vh;
+
+  height: 70vh;
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.text {
+  color: #131313;
+  text-shadow: 0px 0px 12px #F0F0F0;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.description {
+  --description-line-height: 1.5;
+  line-height: --description-line-height;
+
+  overflow: hidden;
+
+  width: 100%;
+}
+
+.descriptionAnswer {
+  height: calc(2 * var(--body-font-size) * var(--description-line-height));
+  max-height: 25vh;
+}
+
+.descriptionAnswersList {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  height: 100%;
+  position: relative;
+
+  transition-duration: 50ms;
+  transition-property: top;
+  transition-timing-function: cubic-bezier(.75, 0, .25, 1);
+}
+
+.descriptionAnswersListItem {
+  height: 100%;
+  min-height: 100%;
+  display: block;
+  white-space: pre-wrap;
+}
+
+.picturesGridContainer {
+  align-self: flex-start;
+  position: sticky;
+  top: 0;
+}
+
+.picturesGridContainer::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 0;
+  height: 0;
+}
+
+.picturesGridContainerFront {
+  z-index: 100;
+}
+
+.picturesGrid {
+  --initial-offset: 80%;
+  --trailing-offset: 100%;
+
+  --pictures-offset: 0px;
+  --pictures-height: 80vh;
+  --pictures-row-count: 5;
+  --pictures-col-count: 18;
+  --pictures-gap: 0.5rem;
+
+  --column-width: calc(
+    (
+      var(--pictures-height)
+        - var(--pictures-gap) * (var(--pictures-row-count) - 1)
+    ) / var( --pictures-row-count)
+  );
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 100vh;
+  width: calc(
+    var(--column-width) * var(--pictures-col-count)
+    + (var(--pictures-gap) * (var(--pictures-col-count) - 1))
+    + var(--initial-offset)
+    + var(--trailing-offset)
+  );
+
+  box-sizing: border-box;
+  padding-left: var(--initial-offset);
+  padding-right: var(--trailing-offset);
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+
+  display: grid;
+  /*grid-template-columns: repeat(6, 1fr);*/
+  grid-template-columns: repeat(
+    var(--pictures-col-count),
+    var(--column-width)
+  );
+  grid-template-rows: repeat(var(--pictures-row-count), 1fr);
+
+  row-gap: var(--pictures-gap);
+  column-gap: var(--pictures-gap);
+
+  transform: translateX(calc(-1px * var(--pictures-offset)));
+}
+
+.picturesGrid::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 0;
+  height: 0;
+}
+
+.pictureContainer {
+  position: relative;
+
+  border-radius: var(--border-radius);
+  overflow: hidden;
+
+  --picture-offset: 0; /* NOTE: includes picturesGrid padding-left */
+  --variance: 1;
+
+  /**
+   * when image it's on the 3/4 edge it is 1, when it's at the edge it is 0
+   *
+   * screen-edge = pictures-horizontal-scroll-x + section-width
+   * screen-three-quarter-edge = pictures-horizontal-scroll-x + section-width * 0.75
+   * picture-absolute-x = leading-white-space + picture-relative-x
+   *
+   * 1 - (picture-absolute-x - screen-three-quarter-edge) * 4 / section-width
+   * = 4 + (4 * pictures-horizontal-scroll-x) / section-width
+   *   - (4 * leading-white-space) / section-width
+   *   - (4 * picture-relative-x) / section-width
+   * = 4 + (pictures-horizontal-scroll-x - leading-white-space - picture-relative-x) * (4 / section-width)
+   * = 4 * (1 + (pictures-horizontal-scroll-x - leading-white-space - picture-relative-x) / section-width)
+   */
+
+  --visibility-factor: calc(
+    4 * (1 + (var(--pictures-offset) - var(--picture-offset)) / var(--section-width))
+  );
+
+  --visible: calc(var(--visibility-factor) * var(--variance));
+  --invisible: calc(1 - var(--visible));
+
+  transform: scale(
+    clamp(
+      0.75,
+      calc((var(--visible) - 0.75) / 0.25),
+      1
+    )
+  );
+  transform-origin: center;
+}
+
+.pictureWash {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #F0F0F0;
+}
+
+.pictureWashOverlay {
+  opacity: 0.25;
+}
+
+.picture {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  opacity: clamp(0.05, var(--visible), 1);
+  filter:
+    blur(clamp(0px, calc(var(--invisible) * 3px), 3px))
+    grayscale(clamp(0, var(--invisible), 1));
+}
+
+.columnMeasurer {
+  grid-column: 1;
+  grid-row: 1;
+}

@@ -1,0 +1,133 @@
+.section {
+  position: relative;
+
+  background-color: #131313;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  height: var(--section-height);
+  width: 100%;
+}
+
+.headerContainer {
+  position: absolute;
+  height: calc(100% + 100vh);
+
+  margin-top: -100vh;
+}
+
+.headerContent {
+  position: sticky;
+  --top: calc(20vh - var(--pre-font-size) - 5rem);
+  top: calc(var(--top));
+  height: calc(100vh - 2 * var(--top));
+  max-height: 55rem;
+}
+
+.back {
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: rotateY(180deg);
+
+  background-color: #F0F0F0;
+}
+
+.front, .back {
+  backface-visibility: hidden;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transition: transform 250ms;
+
+  height: 100%;
+  padding: 5rem 4rem 3rem;
+  box-sizing: border-box;
+
+  border-radius: 3rem;
+  box-shadow: 0 0 3rem #333;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.frontContent {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+  justify-content: space-between;
+}
+
+.frontSpacer {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+@media only screen and (max-width: 768px)  {
+  .headerContent {
+    width: 100%;
+    top: 0;
+  }
+  .front, .back {
+    box-shadow: none;
+    padding: 0px;
+    padding-top: calc(20vh - var(--pre-font-size));
+  }
+}
+
+.frontRotated {
+  transform: rotateY(180deg);
+  /*animation: frontFlip 1s forwards linear;*/
+}
+
+.backRotated {
+  transform: rotateY(0deg);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.textFront {
+  color: #F0F0F0;
+  text-align: center;
+}
+
+.preAboveDate {
+  color: #999;
+  font-family: sans-serif;
+  line-height: 1;
+}
+
+.pre {
+  color: #999;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+.body {
+  margin: 0;
+}
+
+.buttonFront {
+  border-color: #F0F0F0;
+  color: #F0F0F0;
+}
+
+.buttonFront:hover {
+  background-color: #F0F0F0;
+  color: #131313;
+}
+
+.rsvp {
+  color: #131313;
+  padding-bottom: 3rem;
+}
