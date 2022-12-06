@@ -45,12 +45,46 @@
   position: sticky;
   top: 20vh;
 
+  height: 80vh;
+
   align-items: center;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .date {
   color: var(--white);
   text-shadow: 0px 0px 12px var(--black);
+}
+
+.scrollPrompt {
+  color: var(--white);
+  fill: var(--white);
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  padding: 1rem;
+}
+
+.scrollPromptPath {
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  opacity: 0;
+  animation-name: scrollAnimation;
+}
+
+@keyframes scrollAnimation {
+  0% {
+    transform: translateY(-25px);
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+
+  }
 }
