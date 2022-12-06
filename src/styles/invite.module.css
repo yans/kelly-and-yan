@@ -7,7 +7,8 @@
   align-items: center;
   flex-direction: column;
 
-  height: var(--section-height);
+  height: 100vh;
+  min-height: 50rem;
   width: 100%;
 }
 
@@ -24,7 +25,8 @@
 
   --vertical-padding: calc(20vh - var(--pre-font-size) - 5rem);
 
-  height: 100vh;
+  /* match the height of section without the offset from .headerContainer */
+  height: calc(100% - 100vh);
   box-sizing: border-box;
 
   padding-top: var(--vertical-padding);
@@ -136,8 +138,10 @@
   padding-bottom: 3rem;
 }
 
-@media only screen and (max-width: 768px),
-  only screen and (max-height: 800px) {
+@media only screen and (max-width: 768px) {
+  .section {
+    min-height: 40rem;
+  }
   .headerContainer {
     width: 100%;
   }

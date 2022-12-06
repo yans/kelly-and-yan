@@ -36,7 +36,7 @@ export function InviteForm() {
       setEmail(e.currentTarget.value)
     }, [])
 
-  const [isAttending, setAttending] = React.useState<boolean>(false)
+  const [isAttending, setAttending] = React.useState<boolean>(true)
   const handleAttendingOnChange = React.useCallback(
     (e: React.FormEvent<HTMLInputElement>) => {
       setAttending(value => !value)
@@ -60,7 +60,6 @@ export function InviteForm() {
         Email: email,
         isAttending,
       }).then(result => {
-        console.log('result = ', result)
         setFormState('done')
       }).catch(() => {
         setFormState('error')
@@ -78,13 +77,13 @@ export function InviteForm() {
               {
                 isAttending ? (
                   <>
-                    <p>Excited to have you!</p>
-                    <p>See you soon</p>
+                    <p>Can&#8217;t wait to have you celebrate with us!</p>
+                    <p>More info to come soon</p>
                   </>
                 ) : (
                   <>
                     <p>That&#8217;s too bad.</p>
-                    <p>Let us know if you change your mind.</p>
+                    <p>Let us know if you change your mind!</p>
                   </>
                 )
               }
