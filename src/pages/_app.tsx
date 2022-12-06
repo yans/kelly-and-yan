@@ -6,7 +6,7 @@ import { Noto_Serif_Display } from '@next/font/google'
 
 import '../styles/globals.css'
 
-import bg from '../../public/2x/background.jpeg'
+import preview from '../../public/preview.jpeg'
 import favicon16 from '../../public/favicon-16x16.png'
 import favicon32 from '../../public/favicon-32x32.png'
 
@@ -31,11 +31,11 @@ export default function App({ Component, pageProps }: AppProps) {
 
         <meta itemProp="name" content={title} />
         <meta itemProp="description" content={description} />
-        <meta itemProp="image" content={bg.src} />
+        <meta itemProp="image" content={preview.src} />
 
         <meta property="og:title" content={title} />
         <meta property="og:url" content={url} />
-        <meta property="og:image" content={bg.src} />
+        <meta property="og:image" content={preview.src} />
         <meta property="og:description" content={description} />
 
         <meta name="viewport" content="initial-scale=1, minimum-scale=1" />
