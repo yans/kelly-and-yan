@@ -335,7 +335,7 @@ export function MemoriesSection() {
   }, [handleScroll]);
 
   return (
-    <section className={cx(styles.section, 'clip')} ref={sectionRef}>
+    <section className={cx(styles.section, 'clip', 'force-hardware-acceleration')} ref={sectionRef}>
       <div className={cx(styles.picturesGridContainer, styles.picturesGridContainerFront)}>
         <div
           className={cx(styles.picturesGrid, 'force-hardware-acceleration', 'clip')}
@@ -720,7 +720,7 @@ function Image(
         className={cx(styles.picture, 'force-hardware-acceleration')}
         ref={pictureRef}
         src={src}
-        srcSet={`${src} 1x, ${src2x} 2x, ${src3x} 3x`}
+        // srcSet={`${src} 1x, ${src2x} 2x, ${src3x} 3x`}
       />
       <div className={cx(styles.pictureWash, styles.pictureWashOverlay)} />
     </div>
