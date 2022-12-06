@@ -315,7 +315,7 @@ export function MemoriesSection() {
     }
   }, [handleUpdateDate, handleUpdateMemory])
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     const picturesOffset = handleGetPicturesOffset()
     handleUpdateStyles(picturesOffset)
     handleUpdateDateAndMemory(picturesOffset)

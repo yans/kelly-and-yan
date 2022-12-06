@@ -1,6 +1,8 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import cx from 'classnames'
 import React from 'react'
+import { Noto_Serif_Display } from '@next/font/google'
 
 import '../styles/globals.css'
 
@@ -12,6 +14,14 @@ export default function App({ Component, pageProps }: AppProps) {
   const title = "Kelly & Yan"
   const description = "Join us on our special day."
   const url = "htpps://kelly.and.yan.co"
+
+  const [isLoaded, setLoaded] = React.useState(false)
+  React.useEffect(() => {
+    document.fonts.ready.then(() => {
+      setLoaded(true)
+    })
+  }, [])
+
   return (
     <>
       <Head>
@@ -33,7 +43,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" type="image/png" sizes="32x32" href={favicon32.src} />
         <link rel="icon" type="image/png" sizes="16x16" href={favicon16.src} />
       </Head>
-      <Component {...pageProps} />
+      <main className={cx('app', !isLoaded && 'appLoading')}>
+        <Component {...pageProps} />
+      </main>
     </>
   )
 }
