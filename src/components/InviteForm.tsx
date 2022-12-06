@@ -1,16 +1,20 @@
 import React from 'react'
 import styles from '../styles/invite-form.module.css'
 import cx from 'classnames'
+import { useRouter } from 'next/router'
 
 import { Body, Pre } from './Text'
 import { Button } from './Button'
 import { useAirtableData } from './useAirtableData'
 
 export function InviteForm() {
+  const router = useRouter()
   const { data, getReservations, postReservation } = useAirtableData()
   React.useEffect(() => {
     getReservations()
   }, [getReservations])
+
+  const hasPartner = 'partner' in router.query && router.query.partner === '1'
 
   const [formState, setFormState] = React.useState<'default' | 'done' | 'incomplete' | 'error'>('default')
 
@@ -103,16 +107,18 @@ export function InviteForm() {
                 value={name}
               />
             </label>
-            <label className={styles.label}>
-              <Pre className={styles.labelText} variant="compact">Name of Plus One</Pre>
-              <input
-                className={styles.input}
-                onChange={handlePartnerOnChange}
-                placeholder=""
-                type="text"
-                value={partner}
-              />
-            </label>
+            {hasPartner && (
+              <label className={styles.label}>
+                <Pre className={styles.labelText} variant="compact">Name of Plus One</Pre>
+                <input
+                  className={styles.input}
+                  onChange={handlePartnerOnChange}
+                  placeholder=""
+                  type="text"
+                  value={partner}
+                />
+              </label>
+            )}
             <label className={styles.label}>
               <Pre className={styles.labelText} variant="compact">Email</Pre>
               <input
@@ -146,7 +152,6 @@ export function InviteForm() {
               />
             </div>
           </form>
-
         )
       }
     </div>

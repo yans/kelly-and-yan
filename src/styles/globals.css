@@ -25,18 +25,6 @@ html, body {
   padding: 0;
 }
 
-@media only screen and (max-width: 768px)  {
-  html, body {
-    --header-font-size: 8rem;
-    --header-letter-space: 1rem;
-    --body-font-size: 2rem;
-    --body-letter-space: 0.5rem;
-    --pre-font-size: 1rem;
-    --pre-letter-spacing: 0.25rem;
-    --pre-line-height: 2;
-  }
-}
-
 .force-hardware-acceleration {
   -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000;
@@ -48,4 +36,17 @@ html, body {
   -webkit-clip-path: inset(0);
   clip-path: inset(0);
   clip: rect(0px, auto, auto, 0px);
+}
+
+@media only screen and (max-width: 768px),
+  only screen and (max-height: 800px)  {
+  html, body {
+    --header-font-size: 8rem;
+    --header-letter-space: 1rem;
+    --body-font-size: 2rem;
+    --body-letter-space: 0.5rem;
+    --pre-font-size: 1rem;
+    --pre-letter-spacing: 0.25rem;
+    --pre-line-height: 2;
+  }
 }
