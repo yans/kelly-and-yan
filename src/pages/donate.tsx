@@ -39,8 +39,8 @@ export default function Donate() {
         </footer>
       </article>
       <div className={styles.pictureContainer}>
-        <img
-          className={cx(styles.picture, 'force-hardware-acceleration')}
+        <Img
+          className={styles.picture}
           src={donation.src}
           src2x={donationX2.src}
           src3x={donationX3.src}
@@ -65,7 +65,7 @@ function Buttons() {
             rel="noreferrer"
             target="_blank"
           >
-            <img 
+            <Img 
               className={styles.donateIcon}
               src={venmo.src}
               src2x={venmoX2.src}
@@ -79,7 +79,7 @@ function Buttons() {
             rel="noreferrer"
             target="_blank"
           >
-            <img 
+            <Img 
               className={cx(styles.donateIcon, styles.paypalIcon)}
               src={paypal.src}
               src2x={paypalX2.src}
@@ -93,7 +93,7 @@ function Buttons() {
             rel="noreferrer"
             target="_blank"
           >
-            <img 
+            <Img 
               className={styles.donateIcon}
               src={zelle.src}
               src2x={zelleX2.src}
@@ -107,7 +107,7 @@ function Buttons() {
             rel="noreferrer"
             target="_blank"
           >
-            <img 
+            <Img 
               className={styles.donateIcon}
               src={cashApp.src}
               src2x={cashAppX2.src}
@@ -122,5 +122,27 @@ function Buttons() {
         </button>
       )}
     </div>
+  )
+}
+
+
+function Img(
+  {
+    className,
+    src,
+    src2x,
+    src3x,
+  } : {
+    className?: string
+    src: string
+    src2x : string
+    src3x : string
+  }
+) {
+  return (
+    <img
+      className={cx(className, 'force-hardware-acceleration')}
+      srcSet={`${src} 1x, ${src2x} 2x, ${src3x} 3x`}
+    />
   )
 }
