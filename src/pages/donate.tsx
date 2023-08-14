@@ -54,6 +54,13 @@ function Buttons() {
   const [showButtons, setShowButtons] = React.useState(false)
   const handleClickContribute = React.useCallback(() => {
     setShowButtons(true)
+
+    window.setTimeout(() => {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+      });
+    }, 50)
   }, [])
   return (
     <div className={styles.buttons}>
