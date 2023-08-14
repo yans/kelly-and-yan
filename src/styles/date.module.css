@@ -20,12 +20,12 @@
 }
 
 .body {
-  font-size: var(--body-font-size);
+  font-size: var(--subheading-font-size);
   font-weight: 300;
-  line-height: var(--body-line-height);
-  letter-spacing: var(--body-letter-space);
+  line-height: var(--subheading-line-height);
+  letter-spacing: var(--subheading-letter-space);
 
-  margin-right: calc(-1 * var(--body-letter-space));
+  margin-right: calc(-1 * var(--subheading-letter-space));
 }
 
 .headlineSlashContainer {

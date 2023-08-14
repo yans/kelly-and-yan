@@ -1,8 +1,8 @@
 .body {
   font-family: var(--font-family);
-  font-size: var(--body-font-size);
+  font-size: var(--subheading-font-size);
   font-weight: 300;
-  line-height: var(--body-line-height);
+  line-height: var(--subheading-line-height);
   text-align: center;
   white-space: pre-wrap;
   letter-spacing: var(--body-letter-spacing);

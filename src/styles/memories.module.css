@@ -59,7 +59,7 @@
 
 .descriptionAnswer {
   --description-line-height: 1.5;
-  height: calc(2 * var(--body-font-size) * var(--description-line-height));
+  height: calc(2 * var(--subheading-font-size) * var(--description-line-height));
   overflow: hidden;
   width: 100%;
   max-height: 25vh;
