@@ -62,6 +62,7 @@ function Buttons() {
           <a
             className={cx(styles.button, styles.donateButton)}
             href="https://venmo.com/u/Keli46"
+            rel="noreferrer"
             target="_blank"
           >
             <img 
@@ -75,6 +76,7 @@ function Buttons() {
           <a
             className={cx(styles.button, styles.donateButton)}
             href="https://paypal.me/yansun0"
+            rel="noreferrer"
             target="_blank"
           >
             <img 
@@ -88,6 +90,7 @@ function Buttons() {
           <a
             className={cx(styles.button, styles.donateButton)}
             href="https://enroll.zellepay.com/qr-codes?data=ewogICJ0b2tlbiIgOiAia2VsbHlsaTQ2QHlhaG9vLmNvbSIsCiAgIm5hbWUiIDogIktFTExZIiwKICAiYWN0aW9uIiA6ICJwYXltZW50Igp9"
+            rel="noreferrer"
             target="_blank"
           >
             <img 
@@ -101,6 +104,7 @@ function Buttons() {
           <a
             className={cx(styles.button, styles.donateButton)}
             href="https://cash.app/$yansun0"
+            rel="noreferrer"
             target="_blank"
           >
             <img 
