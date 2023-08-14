@@ -22,14 +22,6 @@ import zelleX3 from '../../public/3x/zelle.png'
 export default function Donate() {
   return (
     <div className={styles.layout}>
-      <div className={styles.column}>
-        <img
-          className={cx(styles.picture, 'force-hardware-acceleration')}
-          src={donation.src}
-          src2x={donationX2.src}
-          src3x={donationX3.src}
-        />
-      </div>
       <article className={styles.article}>
         <header className={styles.header}>
           <h1 className={styles.heading}>Thank You</h1>
@@ -46,6 +38,14 @@ export default function Donate() {
           <Buttons />
         </footer>
       </article>
+      <div className={styles.pictureContainer}>
+        <img
+          className={cx(styles.picture, 'force-hardware-acceleration')}
+          src={donation.src}
+          src2x={donationX2.src}
+          src3x={donationX3.src}
+        />
+      </div>
     </div>
   )
 }
@@ -62,6 +62,7 @@ function Buttons() {
           <a
             className={cx(styles.button, styles.donateButton)}
             href="https://venmo.com/u/Keli46"
+            target="_blank"
           >
             <img 
               className={styles.donateIcon}
@@ -73,7 +74,8 @@ function Buttons() {
           </a>
           <a
             className={cx(styles.button, styles.donateButton)}
-            href="https://venmo.com/u/Keli46"
+            href="https://paypal.me/yansun0"
+            target="_blank"
           >
             <img 
               className={cx(styles.donateIcon, styles.paypalIcon)}
@@ -85,7 +87,8 @@ function Buttons() {
           </a>
           <a
             className={cx(styles.button, styles.donateButton)}
-            href="https://venmo.com/u/Keli46"
+            href="https://enroll.zellepay.com/qr-codes?data=ewogICJ0b2tlbiIgOiAia2VsbHlsaTQ2QHlhaG9vLmNvbSIsCiAgIm5hbWUiIDogIktFTExZIiwKICAiYWN0aW9uIiA6ICJwYXltZW50Igp9"
+            target="_blank"
           >
             <img 
               className={styles.donateIcon}
@@ -97,7 +100,8 @@ function Buttons() {
           </a>
           <a
             className={cx(styles.button, styles.donateButton)}
-            href="https://venmo.com/u/Keli46"
+            href="https://cash.app/$yansun0"
+            target="_blank"
           >
             <img 
               className={styles.donateIcon}
