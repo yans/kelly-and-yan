@@ -1,0 +1,39 @@
+.layout {
+  align-items: stretch;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  min-height: 100vh;
+  padding-bottom: 6rem;
+  padding-top: 6rem;
+}
+
+.article {
+  max-width: 30rem;
+}
+
+.pictureContainer {
+  max-width: 30rem;
+  width: 100%;  
+}
+
+.picture {
+  max-width: 100%;
+  position: sticky;
+  top: 6rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .layout {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding-bottom: 4rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    padding-top: 4rem;
+  }
+}

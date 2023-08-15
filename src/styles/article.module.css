@@ -1,0 +1,85 @@
+.article {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: stretch;
+  gap: 2.25rem;
+}
+
+.header  {
+  width: 80%;
+}
+
+.heading {
+  font-family: var(--font-family);
+  font-size: var(--secondary-header-font-size);
+  font-variant: small-caps;
+  font-weight: 400;
+  letter-spacing: var(--secondary-header-letter-spacing);
+  line-height: var(--secondary-header-line-height);
+  margin: 0;
+  text-align: center;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 80%;
+}
+
+.bodyText {
+  font-family: var(--font-family-body);
+  font-size: var(--body-font-size);
+  font-variant: normal;
+  font-weight: 300;
+  letter-spacing: var(--body-letter-spacing);
+  line-height: var(--body-line-height);
+  margin: 0;
+  text-align: left;
+  text-indent: 1rem;
+}
+
+.footer {
+  align-items: center;
+  display: flex;
+  justify-content: stretch;;
+  flex-direction: column;
+  width: 80%;
+}
+
+.from {
+  display: block;
+  font-family: var(--font-family-sans);
+  font-size: var(--body-font-size);
+  font-variant: small-caps;
+  font-weight: 300;
+  letter-spacing: var(--body-letter-spacing);
+  line-height: var(--body-line-height);
+}
+
+.signature {
+  display: block;
+  font-family: var(--font-family-script);
+  font-size: var(--script-font-size);
+  font-variant: normal;
+  font-weight: 300;
+  letter-spacing: var(--script-letter-spacing);
+  line-height: var(--script-line-height);
+}
+
+
+@media only screen and (max-width: 768px) {
+  .header  {
+    width: 100%;
+  }
+
+  .body {
+    width: 100%;
+  }
+
+  .footer {
+    width: 100%;
+  }
+}

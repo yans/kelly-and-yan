@@ -1,8 +1,7 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React from 'react'
-import styles from '../styles/donate.module.css'
-import cx from 'classnames'
 
+import LandingPage from '../components/LandingPage'
 import cashApp from '../../public/1x/cash-app.png'
 import cashAppX2 from '../../public/2x/cash-app.png'
 import cashAppX3 from '../../public/3x/cash-app.png'
@@ -21,135 +20,73 @@ import zelleX3 from '../../public/3x/zelle.png'
 
 export default function Donate() {
   return (
-    <div className={styles.layout}>
-      <article className={styles.article}>
-        <header className={styles.header}>
-          <h1 className={styles.heading}>Thank You</h1>
-        </header>
-        <div className={styles.body}>
-          <p className={styles.bodyText}>Friends & Family,</p>
-          <p className={styles.bodyText}>Being here today is your greatest present to us.</p>
-          <p className={styles.bodyText}>Gifts are <u>not expected</u>.</p>
-          <p className={styles.bodyText}>But if you’d like, a contribution towards our honeymoon would be truly appreciated.</p>
-        </div>
-        <footer className={styles.footer}>
-          <span className={styles.from}>from</span>
-          <span className={styles.signature}>Kelly & Yan</span>
-          <Buttons />
-        </footer>
-      </article>
-      <div className={styles.pictureContainer}>
-        <Img
-          className={styles.picture}
-          src={donation.src}
-          src2x={donationX2.src}
-          src3x={donationX3.src}
-        />
-      </div>
-    </div>
-  )
-}
-
-function Buttons() {
-  const [showButtons, setShowButtons] = React.useState(false)
-  const handleClickContribute = React.useCallback(() => {
-    setShowButtons(true)
-
-    window.setTimeout(() => {
-      window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: 'smooth'
-      });
-    }, 50)
-  }, [])
-  return (
-    <div className={styles.buttons}>
-      {showButtons ? (
-        <>
-          <a
-            className={cx(styles.button, styles.donateButton)}
-            href="https://venmo.com/u/Keli46"
-            rel="noreferrer"
-            target="_blank"
-          >
-            <Img 
-              className={styles.donateIcon}
-              src={venmo.src}
-              src2x={venmoX2.src}
-              src3x={venmoX3.src}
-             />
-            <span className={styles.buttonText}>Venmo</span>
-          </a>
-          <a
-            className={cx(styles.button, styles.donateButton)}
-            href="https://paypal.me/yansun0"
-            rel="noreferrer"
-            target="_blank"
-          >
-            <Img 
-              className={cx(styles.donateIcon, styles.paypalIcon)}
-              src={paypal.src}
-              src2x={paypalX2.src}
-              src3x={paypalX3.src}
-             />
-            <span className={styles.buttonText}>Paypal</span>
-          </a>
-          <a
-            className={cx(styles.button, styles.donateButton)}
-            href="https://enroll.zellepay.com/qr-codes?data=ewogICJ0b2tlbiIgOiAia2VsbHlsaTQ2QHlhaG9vLmNvbSIsCiAgIm5hbWUiIDogIktFTExZIiwKICAiYWN0aW9uIiA6ICJwYXltZW50Igp9"
-            rel="noreferrer"
-            target="_blank"
-          >
-            <Img 
-              className={styles.donateIcon}
-              src={zelle.src}
-              src2x={zelleX2.src}
-              src3x={zelleX3.src}
-             />
-            <span className={styles.buttonText}>Zelle</span>
-          </a>
-          <a
-            className={cx(styles.button, styles.donateButton)}
-            href="https://cash.app/$yansun0"
-            rel="noreferrer"
-            target="_blank"
-          >
-            <Img 
-              className={styles.donateIcon}
-              src={cashApp.src}
-              src2x={cashAppX2.src}
-              src3x={cashAppX3.src}
-             />
-            <span className={styles.buttonText}>Cash App</span>
-          </a>
-        </>
-      ) : (
-        <button className={cx(styles.button, styles.contributeButton)} onClick={handleClickContribute}>
-          <span className={styles.buttonText}>Contribute</span>
-        </button>
-      )}
-    </div>
-  )
-}
-
-
-function Img(
-  {
-    className,
-    src,
-    src2x,
-    src3x,
-  } : {
-    className?: string
-    src: string
-    src2x : string
-    src3x : string
-  }
-) {
-  return (
-    <img
-      className={cx(className, 'force-hardware-acceleration')}
-      srcSet={`${src} 1x, ${src2x} 2x, ${src3x} 3x`}
+    <LandingPage
+      article={{
+        title: 'Thank You',
+        body: [
+          'Friends & Family,',
+          'Being here today is your greatest present to us.',
+          <>Gifts are <u>not expected</u>.</>,
+          'But if you’d like, a contribution towards our honeymoon would be truly appreciated.'
+        ]
+      }}
+      button={{
+        title: 'Contribute',
+        buttons: [
+          {
+            title: 'Venmo',
+            href: 'https://venmo.com/u/Keli46',
+            icon: {
+              src: {
+                x1: venmo.src,
+                x2: venmoX2.src,
+                x3: venmoX3.src
+              },
+              variant: 'tight'
+            }
+          },
+          {
+            title: 'PayPal',
+            href: 'https://paypal.me/yansun0',
+            icon: {
+              src: {
+                x1: paypal.src,
+                x2: paypalX2.src,
+                x3: paypalX3.src
+              }
+            }
+          },
+          {
+            title: 'Zelle',
+            href: 'https://enroll.zellepay.com/qr-codes?data=ewogICJ0b2tlbiIgOiAia2VsbHlsaTQ2QHlhaG9vLmNvbSIsCiAgIm5hbWUiIDogIktFTExZIiwKICAiYWN0aW9uIiA6ICJwYXltZW50Igp9',
+            icon: {
+              src: {
+                x1: zelle.src,
+                x2: zelleX2.src,
+                x3: zelleX3.src
+              },
+              variant: 'tight'
+            }
+          },
+          {
+            title: 'Cash App',
+            href: 'https://cash.app/$yansun0',
+            icon: {
+              src: {
+                x1: cashApp.src,
+                x2: cashAppX2.src,
+                x3: cashAppX3.src
+              },
+              variant: 'tight'
+            }
+          }
+        ]
+      }}
+      picture={{
+        src: donation.src,
+        srcX2: donationX2.src,
+        srcX3: donationX3.src
+      }}
     />
   )
 }
