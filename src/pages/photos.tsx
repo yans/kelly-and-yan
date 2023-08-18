@@ -11,9 +11,9 @@ import dropboxX3 from '../../public/3x/dropbox.png'
 import gdrive from '../../public/1x/gdrive.png'
 import gdriveX2 from '../../public/2x/gdrive.png'
 import gdriveX3 from '../../public/3x/gdrive.png'
-import onedrive from '../../public/1x/onedrive.png'
-import onedriveX2 from '../../public/2x/onedrive.png'
-import onedriveX3 from '../../public/3x/onedrive.png'
+import gphotos from '../../public/1x/gphotos.png'
+import gphotosX2 from '../../public/2x/gphotos.png'
+import gphotosX3 from '../../public/3x/gphotos.png'
 
 export default function Donate() {
   return (
@@ -31,8 +31,19 @@ export default function Donate() {
         title: 'Share',
         buttons: [
           {
+            title: 'Google Photos',
+            href: 'https://photos.app.goo.gl/2NT6igizVJuJV8d78',
+            icon: {
+              src: {
+                x1: gphotos.src,
+                x2: gphotosX2.src,
+                x3: gphotosX3.src
+              },
+            }
+          },
+          {
             title: 'Google Drive',
-            href: '#',
+            href: 'https://drive.google.com/drive/folders/1b2RUyeM03TxpommHgvDCt_40a85Mt6kt',
             icon: {
               src: {
                 x1: gdrive.src,
@@ -43,24 +54,13 @@ export default function Donate() {
           },
           {
             title: 'DropBox',
-            href: '#',
+            href: 'https://www.dropbox.com/request/6Rb4RPYhQy2aZjFxI8rs',
             icon: {
               src: {
                 x1: dropbox.src,
                 x2: dropboxX2.src,
                 x3: dropboxX3.src
               }
-            }
-          },
-          {
-            title: 'OneDrive',
-            href: '#',
-            icon: {
-              src: {
-                x1: onedrive.src,
-                x2: onedriveX2.src,
-                x3: onedriveX3.src
-              },
             }
           }
         ]
